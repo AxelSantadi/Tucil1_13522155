@@ -1,5 +1,5 @@
 import readFile
-import process
+import cli
 import numpy as np
 
 nput = input("Apakah anda ingin memasukkan Input atau membaca .txt? (Input / Text / Gajadi): ")
@@ -13,11 +13,7 @@ if (nput == "Text"):
     namafile = nama1 + nama2
     data = readFile.baca_file(namafile)
     buffer_size, matrix_width, matrix_height, matrix, num_sequences, sequences, rewards = readFile.proses_data(data)
-    print (buffer_size, matrix_width, matrix_height)
-    print (matrix)
-    print(num_sequences)
-    print(sequences)
-    print(rewards)
+
 elif (nput == "Input"):
     jumlahToken = int(input("Masukkan jumlah token unik: "))
     listToken = input("Masukkan token apa saja yang akan dipakai: ")
@@ -29,15 +25,12 @@ elif (nput == "Input"):
     y = int(listUkuranMatrixFinal[1])
     jumlahSekuens = int(input("Masukkan jumlah sekuens: "))
     maxSekuens = int(input("Masukkan ukuran maksimal sekuens: "))
+    while (maxSekuens <= 1):
+        maxSekuens = int(input("Walaheh, 'sekuens' minimal 2 loh mazzeh, coba masukkin lagi: "))
 
-    print(jumlahToken)
-    print(listTokenFinal)
-    print(maxBuffer)
-    print(x, y)
-    print(jumlahSekuens)
-    print(maxSekuens)
-
-    process.processInput(jumlahToken, listTokenFinal, maxBuffer, x, y, jumlahSekuens, maxSekuens)
+    matrix = cli.makeMatrix(jumlahToken, listTokenFinal, x, y)
+    listSequence = cli.makeSequence(jumlahSekuens, maxSekuens, listTokenFinal, jumlahToken)
+    listReward = cli.makeSequenceReward(jumlahSekuens)
 
 elif (nput == "Gajadi"):
     print("Oke deh masbro, see you next time :D .")
