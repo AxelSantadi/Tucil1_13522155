@@ -1,7 +1,7 @@
-# Tucil1_13522155
 # Tugas Kecil 1 IF2211 Strategi Algoritma
+made by yours trully, Axel Santadi Warih
 
-Penyelesaian Cyberpunk 2077 Breach Protocol dengan Algoritma Brute Force
+# Penyelesaian Cyberpunk 2077 Breach Protocol dengan Algoritma Brute Force
 
 ## How to Run?
 1. Open a terminal on the repository folder
